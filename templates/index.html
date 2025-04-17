@@ -10,29 +10,53 @@
   <header>
     <h1>🌐 Les grands titres du jour</h1>
   </header>
+  <div class="d-grid">
+    <!-- Section météo -->
+    <section class="weather-section">
+        <h2>☀️ Météo locale</h2>
+        <div id="weather-card" class="weather-card">
+        <!-- Le JS remplira ici la température, icône, description… -->
+        <div class="loader">Chargement…</div>
+        </div>
+    </section>
 
-  <!-- Section météo -->
-  <section class="weather-section">
-    <h2>☀️ Météo locale</h2>
-    <div id="weather-card" class="weather-card">
-      <!-- Le JS remplira ici la température, icône, description… -->
-      <div class="loader">Chargement…</div>
+    <!-- Section actualités -->
+    <section class="news-section">
+        <table>
+        <thead>
+            <tr><th>Titre</th></tr>
+        </thead>
+        <tbody id="news-table">
+            <!-- Les actualités seront ajoutées ici par script.js -->
+        </tbody>
+        </table>
+    </section>
+        <!-- Section réveil -->
+    <section class="alarm-section">
+        <h2>⏰ Planifier ton réveil</h2>
+        <div class="alarm-card">
+        <input type="time" id="wake-time" />
+        <button id="setAlarmBtn">Planifier</button>
+        <p id="alarmMsg" class="alarm-msg"></p>
+        </div>
+    </section>
+  </div>
+
+  
+
+  <footer class="site-footer">
+  <div class="footer-content">
+    <p>© 2025 « Les grands titres du jour ». Tous droits réservés.</p>
+    <div class="socials">
+      <a href="#" title="Twitter">🐦</a>
+      <a href="#" title="GitHub">🐙</a>
+      <a href="#" title="LinkedIn">🔗</a>
     </div>
-  </section>
-
-  <!-- Section actualités -->
-  <section class="news-section">
-    <table>
-      <thead>
-        <tr><th>Titre</th></tr>
-      </thead>
-      <tbody id="news-table">
-        <!-- Les actualités seront ajoutées ici par script.js -->
-      </tbody>
-    </table>
-  </section>
+  </div>
+</footer>
 
   <script src="/static/script.js"></script>
-  <script src="/static/weather.js"></script> <!-- Nouveau script météo -->
+  <script src="/static/weather.js"></script>
+  <script src="/static/alarm.js"></script>
 </body>
 </html>

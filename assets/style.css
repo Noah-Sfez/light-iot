@@ -1,100 +1,228 @@
 /* style.css */
 
+/* — Import d’une typo élégante pour les titres — */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+/* — Variables de palette “luxe” — */
+:root {
+  --accent-primary: #CDAA7D;       /* or doux */
+  --accent-secondary: #8C7732;     /* or plus foncé */
+  --bg-gradient: linear-gradient(135deg, #111111, #1c1c1c, #111111);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --text-light: #ECE8DD;           /* ivoire très doux */
+  --border-light: rgba(237, 232, 221, 0.2);
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* — Reset & fond général — */
+* {
+  box-sizing: border-box;
+}
 body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0; padding: 0;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background: var(--bg-gradient);
+  color: var(--text-light);
   text-align: center;
 }
 
+/* — Titres stylés — */
 h1, h2 {
-  text-shadow:
-    0 0 5px rgba(255,255,255,0.8),
-    0 0 10px rgba(0, 200, 255,0.6),
-    0 0 20px rgba(0, 200, 255,0.4);
-  margin: 20px 0;
-  animation: neon-flicker 3s infinite;
-}
-
-@keyframes neon-flicker {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
-    text-shadow:
-      0 0 5px rgba(255,255,255,0.8),
-      0 0 10px rgba(0, 200, 255,0.6),
-      0 0 20px rgba(0, 200, 255,0.4);
-  }
-  20%, 24%, 55% {
-    text-shadow: none;
-  }
+  font-family: var(--font-heading);
+  color: var(--accent-primary);
+  margin: 1.5rem 0;
 }
 
 /* — Section météo — */
 .weather-section {
-  margin: 30px auto;
-  width: 90%; max-width: 400px;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 360px;
 }
-
 .weather-card {
-  position: relative;
-  padding: 20px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  box-shadow:
-    0 0 10px rgba(0, 200, 255, 0.5),
-    0 0 20px rgba(0, 200, 255, 0.3);
-  color: #fff;
-  min-height: 120px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  animation: glow 2.5s infinite alternate;
+  align-items: center;
+  transition: transform 0.25s ease;
 }
-
+.weather-card:hover {
+  transform: translateY(-4px);
+}
+.weather-emoji {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+.weather-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.3rem;
+}
+.weather-desc {
+  text-transform: capitalize;
+  margin: 0.2rem 0 0.8rem;
+  font-style: italic;
+}
 .loader {
-  font-size: 1rem;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
-/* — Effet pulsation glow — */
-@keyframes glow {
-  from {
-    box-shadow:
-      0 0 10px rgba(0, 200, 255, 0.5),
-      0 0 20px rgba(0, 200, 255, 0.3);
-  }
-  to {
-    box-shadow:
-      0 0 20px rgba(0, 255, 200, 0.8),
-      0 0 30px rgba(0, 255, 200, 0.5);
-  }
+/* — Section actualités — */
+.news-section {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 800px;
 }
-
-/* — Section news — */
 .news-section table {
-  width: 90%; max-width: 800px;
-  margin: 20px auto;
+  width: 100%;
   border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
   border-radius: 8px;
   overflow: hidden;
 }
-
-.news-section thead {
-  background: rgba(0, 200, 255, 0.8);
+.news-section thead th {
+  background: none;
+  color: var(--accent-primary);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--border-light);
+  padding: 0.75rem;
 }
-
-.news-section th, .news-section td {
-  padding: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  color: #e0e0e0;
+.news-section td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  text-align: left;
 }
-
+.news-section tbody tr:last-child td {
+  border-bottom: none;
+}
 .news-section tbody tr:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(237, 232, 221, 0.06);
 }
 
+/* — Footer épuré — */
+.site-footer {
+  margin-top: 3rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-light);
+}
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+}
+.site-footer p {
+  margin: 0;
+  color: var(--text-light);
+}
+.socials a {
+  margin: 0 6px;
+  font-size: 1.2rem;
+  color: var(--accent-primary);
+  transition: transform 0.2s, color 0.2s;
+}
+.socials a:hover {
+  color: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+/* — Responsive — */
 @media (max-width: 600px) {
-  .weather-section, .news-section table { width: 100%; }
+  .footer-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* — Effet lueur flottante en arrière-plan — */
+body::before {
+  content: "";
+  position: fixed;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background:
+    /* grosse tache chaude à gauche */
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 235, 200, 0.4),
+      transparent 40%
+    ),
+    /* tache froide à droite */
+    radial-gradient(
+      circle at 75% 70%,
+      rgba(200, 220, 255, 0.35),
+      transparent 40%
+    );
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(150px);
+}
+
+/* — Section réveil — */
+.alarm-section {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 400px;
+}
+.alarm-section h2 {
+  font-family: var(--font-heading);
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+}
+.alarm-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.alarm-card input[type="time"] {
+  flex: 1;
+  padding: 0.4rem;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-light);
+}
+.alarm-card button {
+  padding: 0.5rem 1rem;
+  background: var(--accent-primary);
+  border: none;
+  border-radius: 6px;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.alarm-card button:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+.alarm-msg {
+  flex-basis: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+  text-align: left;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
 }

@@ -23,7 +23,7 @@ async function fetchNews() {
                 row.appendChild(titleCell);
 
                 newsTable.appendChild(row);
-                titlesArray.push(article.title); // Ajouter les titres à un tableau
+                titlesArray.push(article.title);
             });
         } else {
             console.log("Aucune actualité trouvée.");
@@ -35,7 +35,6 @@ async function fetchNews() {
 
 fetchNews();
 
-// Fonction pour envoyer les titres au serveur Flask pour conversion en MP3
 async function convertTitlesToMP3() {
     const response = await fetch("/generate_mp3", {
         method: "POST",
@@ -52,46 +51,6 @@ async function convertTitlesToMP3() {
     }
 }
 
-// Lier le bouton à la fonction de conversion
 document
     .getElementById("convertBtn")
     .addEventListener("click", convertTitlesToMP3);
-
-// Weather API
-// weather.js
-
-const weatherCard = document.getElementById('weather-card');
-const apiMeteoKey = "20dc5ed9ac0e76fd63318305973434c1";  // ↪️ à remplacer
-
-// Récupère la position de l’utilisateur
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(pos => {
-    const { latitude, longitude } = pos.coords;
-    fetchWeather(latitude, longitude);
-  }, () => {
-    weatherCard.innerHTML = '<p>Impossible d\'obtenir la géoloc.</p>';
-  });
-} else {
-  weatherCard.innerHTML = '<p>Géolocalisation non supportée.</p>';
-}
-
-function fetchWeather(lat, lon) {
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=fr&units=metric&appid=${apiMeteoKey}`;
-  fetch(url)
-    .then(res => res.json())
-    .then(data => displayWeather(data))
-    .catch(() => {
-      weatherCard.innerHTML = '<p>Erreur de chargement météo.</p>';
-    });
-}
-
-function displayWeather(data) {
-  const icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-  weatherCard.innerHTML = `
-    <img src="${icon}" alt="${data.weather[0].description}" />
-    <h3>${Math.round(data.main.temp)}°C</h3>
-    <p>${data.weather[0].description}</p>
-    <small>${data.name}</small>
-  `;
-}
- 
