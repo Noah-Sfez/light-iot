@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grands Titres</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grands Titres & Météo</title>
+  <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
-    <h1>Les grands titres du jour</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Titre</th>
-            </tr>
-        </thead>
-        <tbody id="news-table">
-            <!-- Les actualités seront ajoutées ici -->
-        </tbody>
-    </table>
-    <button id="convertBtn">Convertir les titres en MP3</button>
+  <header>
+    <h1>🌐 Les grands titres du jour</h1>
+  </header>
 
-    <script src="/static/script.js"></script>
+  <!-- Section météo -->
+  <section class="weather-section">
+    <h2>☀️ Météo locale</h2>
+    <div id="weather-card" class="weather-card">
+      <!-- Le JS remplira ici la température, icône, description… -->
+      <div class="loader">Chargement…</div>
+    </div>
+  </section>
+
+  <!-- Section actualités -->
+  <section class="news-section">
+    <table>
+      <thead>
+        <tr><th>Titre</th></tr>
+      </thead>
+      <tbody id="news-table">
+        <!-- Les actualités seront ajoutées ici par script.js -->
+      </tbody>
+    </table>
+  </section>
+
+  <script src="/static/script.js"></script>
+  <script src="/static/weather.js"></script> <!-- Nouveau script météo -->
 </body>
 </html>

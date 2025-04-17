@@ -1,0 +1,100 @@
+/* style.css */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0; padding: 0;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #e0e0e0;
+  text-align: center;
+}
+
+h1, h2 {
+  text-shadow:
+    0 0 5px rgba(255,255,255,0.8),
+    0 0 10px rgba(0, 200, 255,0.6),
+    0 0 20px rgba(0, 200, 255,0.4);
+  margin: 20px 0;
+  animation: neon-flicker 3s infinite;
+}
+
+@keyframes neon-flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 5px rgba(255,255,255,0.8),
+      0 0 10px rgba(0, 200, 255,0.6),
+      0 0 20px rgba(0, 200, 255,0.4);
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+/* — Section météo — */
+.weather-section {
+  margin: 30px auto;
+  width: 90%; max-width: 400px;
+}
+
+.weather-card {
+  position: relative;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 0 10px rgba(0, 200, 255, 0.5),
+    0 0 20px rgba(0, 200, 255, 0.3);
+  color: #fff;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: glow 2.5s infinite alternate;
+}
+
+.loader {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+/* — Effet pulsation glow — */
+@keyframes glow {
+  from {
+    box-shadow:
+      0 0 10px rgba(0, 200, 255, 0.5),
+      0 0 20px rgba(0, 200, 255, 0.3);
+  }
+  to {
+    box-shadow:
+      0 0 20px rgba(0, 255, 200, 0.8),
+      0 0 30px rgba(0, 255, 200, 0.5);
+  }
+}
+
+/* — Section news — */
+.news-section table {
+  width: 90%; max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.news-section thead {
+  background: rgba(0, 200, 255, 0.8);
+}
+
+.news-section th, .news-section td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: #e0e0e0;
+}
+
+.news-section tbody tr:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 600px) {
+  .weather-section, .news-section table { width: 100%; }
+}
