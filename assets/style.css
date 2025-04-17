@@ -1,15 +1,13 @@
 /* style.css */
 
-/* — Import d’une typo élégante pour les titres — */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
-/* — Variables de palette “luxe” — */
 :root {
-  --accent-primary: #CDAA7D;       /* or doux */
-  --accent-secondary: #8C7732;     /* or plus foncé */
+  --accent-primary: #CDAA7D;
+  --accent-secondary: #8C7732;
   --bg-gradient: linear-gradient(135deg, #111111, #1c1c1c, #111111);
   --card-bg: rgba(255, 255, 255, 0.04);
-  --text-light: #ECE8DD;           /* ivoire très doux */
+  --text-light: #ECE8DD;
   --border-light: rgba(237, 232, 221, 0.2);
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Helvetica Neue', Arial, sans-serif;
@@ -144,7 +142,6 @@ h1, h2 {
   }
 }
 
-/* — Effet lueur flottante en arrière-plan — */
 body::before {
   content: "";
   position: fixed;
@@ -153,13 +150,11 @@ body::before {
   width: 140%;
   height: 140%;
   background:
-    /* grosse tache chaude à gauche */
     radial-gradient(
       circle at 30% 30%,
       rgba(255, 235, 200, 0.4),
       transparent 40%
     ),
-    /* tache froide à droite */
     radial-gradient(
       circle at 75% 70%,
       rgba(200, 220, 255, 0.35),
